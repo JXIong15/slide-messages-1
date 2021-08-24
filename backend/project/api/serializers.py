@@ -13,6 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'password']
 
+        # prevents password from showing on DB
         extra_kwargs = {'password': {
             'write_only': True,
             'required': True
