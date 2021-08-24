@@ -13,7 +13,7 @@ function Login() {
   // if token exists for user, user is logged in and taken to their messages
   useEffect(() => {
     if (token['mytoken']) {
-      history.push('/messages')
+      history.push('/inbox')
     }
   }, [token])
 

@@ -8,9 +8,4 @@ router.register('users', UserViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls))
-    # path('messages/', MessageList.as_view()),
-    # path('messages/<int:id>/', MessageDetails.as_view()),
-
-    # path('messages/', message_list),
-    # path('messages/<int:pk>/', message_details),
 ]
