@@ -1,10 +1,21 @@
 import React from "react";
+import API from "../utils/API";
 
 function Message(props) {
-  const deleteBtn = (message) => {
-    deleteBtn(message)
-    console.log(message)
+  
+  const deleteBtn = (id) => {
+    API.deleteMessage(id)
+      .then(res => {
+        alert("Message Deleted")
+        // NEED TO REFRESH TO SHOW IT WAS DELETED
+        // OR USE API CALL
+      })
+      .catch(err => {
+        alert("Message could NOT be deleted");
+        console.log(err)
+      });
   }
+
 
   return (
     <div>
@@ -16,13 +27,13 @@ function Message(props) {
             <p>{message.title}</p>
 
             <div className="row">
-              <div className = "col-md-1">
-                <button className = "btn btn-danger">Delete</button>
+              <div className="col-md-1">
+                <button className="btn btn-danger" onClick={() => deleteBtn(message.id)}>Delete</button>
               </div>
-              </div>
+            </div>
 
           </div>
-          )
+        )
       })}
     </div>
   );

@@ -22,7 +22,7 @@ class Body extends Component {
                 <h1>BODY</h1>
                 {/* <Inbox />
                 <Sent /> */}
-                {/* <Message messageList={this.state.messageList} /> */}
+                <Message messageList={this.state.messageList} />
                 <Compose />
 
 
