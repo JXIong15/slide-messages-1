@@ -1,28 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import API from "../utils/API";
+import {useCookies} from 'react-cookie';
 
-class Login extends Component {
+function Login() {
   // Setting the component's initial state
-  state = {
-    username: "",
-    password: ""
-  };
+  // state = {
+  //   username: "",
+  //   password: "",
+  //   token:""
+  // };
 
-  handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useCookies(['mytoken']);
 
-    if (name === "password") {
-      value = value.substring(0, 15);
-    }
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
-  };
 
-  handleFormSubmit = event => {
+  const handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     if (!this.state.username) {
@@ -41,19 +34,21 @@ class Login extends Component {
     });
   };
 
-  handleLogin = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
-    
-    API.loginUser({username:this.state.username, password:this.state.password})
-      .then(res => console.log(res))
+    API.loginUser({username, password})
+      .then(res => {
+        console.log(res.data.token)
+        setToken('mytoken', res.data.token)
+      })
       .catch(err => console.log(err))
   }
 
 
-  render() {
+  // render() {
     return (
       <div className="row">
-        <div className="col-6">
+        {/* <div className="col-6">
           <p>
             Don't have an account? Sign up here!
           </p>
@@ -74,7 +69,7 @@ class Login extends Component {
             />
             <button onClick={this.handleFormSubmit}>Sign Up</button>
           </form>
-        </div>
+        </div> */}
 
         <div className="col-6">
           <p>
@@ -82,25 +77,25 @@ class Login extends Component {
           </p>
           <form className="form">
             <input
-              value={this.state.username}
+              value={username}
               name="username"
-              onChange={this.handleInputChange}
+              onChange={e => setUsername(e.target.value)}
               type="username"
               placeholder="username"
             />
             <input
-              value={this.state.password}
+              value={password}
               name="password"
-              onChange={this.handleInputChange}
+              onChange={e => setPassword(e.target.value)}
               type="password"
               placeholder="Password"
             />
-            <button className="btn btn-primary" onClick={this.handleLogin}>Login</button>
+            <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </form>
         </div>
       </div>
     );
-  }
+  // }
 }
 
 export default Login;
