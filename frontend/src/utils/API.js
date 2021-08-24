@@ -28,7 +28,10 @@ export default {
 
 
     // user APIs
-    loginUser: function(username, password) {
-        return axios.post('http://127.0.0.1:8000/auth/', username, password)
+    loginUser: function(user) {
+        return axios.post('http://127.0.0.1:8000/auth/', user)
+    },
+    registerUser(user) {
+        return axios.post('http://127.0.0.1:8000/api/users/', user)
     }
 }

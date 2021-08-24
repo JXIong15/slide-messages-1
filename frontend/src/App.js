@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Body from "./components/Body";
-
 // import Message from "./components/Message";
 // import Compose from "./components/Compose";
 // import Error from "./components/Error";
@@ -9,17 +8,11 @@ import './App.css';
 
 function App() {
 
-
-  const messageForm = () => {
-    // setNewMessage({sender:'', recipient:'', title:'', body:''})
-    console.log("message form")
-  }
-
   return (
     <div>
       <Header />
       <Body />
-      
+
       {/* <Message messageList={messageList} /> */}
       {/* <Compose />
       <Error /> */}
