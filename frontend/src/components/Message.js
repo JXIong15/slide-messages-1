@@ -7,7 +7,7 @@ function Message(props) {
     API.deleteMessage(id)
       .then(res => {
         alert("Message Deleted")
-        // NEED TO REFRESH TO SHOW IT WAS DELETED
+        // NEED TO REROUTE TO SHOW IT WAS DELETED
         // OR USE API CALL
       })
       .catch(err => {

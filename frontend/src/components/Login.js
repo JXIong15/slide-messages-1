@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 
 class Login extends Component {
   // Setting the component's initial state
@@ -40,8 +41,16 @@ class Login extends Component {
     });
   };
 
+  handleLogin = (event) => {
+    event.preventDefault();
+    
+    API.loginUser({username:this.state.username, password:this.state.password})
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
+
   render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div className="row">
         <div className="col-6">
@@ -86,7 +95,7 @@ class Login extends Component {
               type="password"
               placeholder="Password"
             />
-            <button onClick={this.handleFormSubmit}>Login</button>
+            <button className="btn btn-primary" onClick={this.handleLogin}>Login</button>
           </form>
         </div>
       </div>

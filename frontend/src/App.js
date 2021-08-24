@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-import Login from "./components/Login";
 import Body from "./components/Body";
 
 // import Message from "./components/Message";
@@ -19,7 +18,6 @@ function App() {
   return (
     <div>
       <Header />
-      <Login />
       <Body />
       
       {/* <Message messageList={messageList} /> */}
