@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-// import Inbox from "./Inbox";
-// import Sent from "./Sent";
-
+import Inbox from "./Inbox";
+import Sent from "./Sent";
+import Compose from "./Compose";
 import Message from "./Message";
 
 class Body extends Component {
@@ -17,31 +17,14 @@ class Body extends Component {
     }
 
     render() {
-        console.log(this.state.messageList)
         return (
             <div>
                 <h1>BODY</h1>
                 {/* <Inbox />
                 <Sent /> */}
-                {/* <Message messageList={this.messageList} /> */}
+                {/* <Message messageList={this.state.messageList} /> */}
+                <Compose />
 
-
-                {this.state.messageList && this.state.messageList.map(message => {
-                    console.log(message)
-                    return (
-                        <div key={message.id}>
-                            <p>{message.sender}</p>
-                            <p>{message.title}</p>
-
-                            <div className="row">
-                                <div className="col-md-1">
-                                    <button className="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    )
-                })}
 
 
             </div>
