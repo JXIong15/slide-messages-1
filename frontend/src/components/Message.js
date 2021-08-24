@@ -1,9 +1,29 @@
 import React from "react";
 
-function Message() {
+function Message(props) {
+  const deleteBtn = (message) => {
+    deleteBtn(message)
+    console.log(message)
+  }
+
   return (
     <div>
       <h1>MESSAGE</h1>
+      {props.messages && props.messages.map(message => {
+        return (
+          <div key={message.id}>
+            <p>{message.sender}</p>
+            <p>{message.title}</p>
+
+            <div className="row">
+              <div className = "col-md-1">
+                <button className = "btn btn-danger">Delete</button>
+              </div>
+              </div>
+
+          </div>
+          )
+      })}
     </div>
   );
 }
