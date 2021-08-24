@@ -1,35 +1,32 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import Inbox from "./Inbox";
 import Sent from "./Sent";
 import Compose from "./Compose";
 import Message from "./Message";
+import { useCookies } from 'react-cookie';
 
-class Body extends Component {
-    state = {
-        messageList: [],
-    };
+function Body() {
+    const [messageList, setMessageList] = useState('');
+    const [token] = useCookies(['mytoken'])
 
-    componentDidMount = () => {
-        API.getMessages()
-            .then(res => this.setState({ messageList: res.data }))
-            .catch(err => console.log(err));
-    }
+    API.getMessages(token['mytoken'])
+        .then(res => setMessageList(res.data))
+        .catch(err => console.log(err));
 
-    render() {
-        return (
-            <div>
-                <h1>BODY</h1>
-                {/* <Inbox />
+
+    return (
+        <div>
+            <h1>BODY</h1>
+            {/* <Inbox />
                 <Sent /> */}
-                <Message messageList={this.state.messageList} />
-                <Compose />
+            <Message messageList={messageList} />
+            <Compose />
 
 
 
-            </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Body;

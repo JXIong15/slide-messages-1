@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import {useCookies} from 'react-cookie';
+import {useHistory} from 'react-router-dom';
 
 function Login() {
-  // Setting the component's initial state
-  // state = {
-  //   username: "",
-  //   password: "",
-  //   token:""
-  // };
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useCookies(['mytoken']);
+  let history = useHistory()
 
+  // if token exists for user, user is logged in and taken to their messages
+  useEffect(() => {
+    if(token['mytoken']) {
+      history.push('/messages')
+    }
+  }, [token])
 
   const handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
