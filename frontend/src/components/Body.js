@@ -5,28 +5,25 @@ import Sent from "./Sent";
 import Compose from "./Compose";
 import Message from "./Message";
 import { useCookies } from 'react-cookie';
-import { useHistory } from 'react-router-dom';
 
 function Body() {
     const [messageList, setMessageList] = useState('');
-    const [token, removeToken] = useCookies(['mytoken'])
-    let history = useHistory()
+    const [token, setToken, removeToken] = useCookies(['mytoken'])
 
     API.getMessages(token['mytoken'])
         .then(res => setMessageList(res.data))
         .catch(err => console.log(err));
  
-    useEffect(() => {
-        if(!token['mytoken']) {
-            history.push('/')
-        }
-    }, [token])
+        useEffect(() => {
+            if (!token['mytoken']) {
+              window.location.href = '/'
+            }
+          }, [token])
 
 
     const logoutBtn = () => {
-        console.log(token['mytoken'])
-        // removeToken(['mytoken'])
-        document.cookie='mytoken=; expires=Thu, 01 1970 00:00:01 GMT;'
+        removeToken(['mytoken'])
+        setToken('mytoken', "")
     }
 
     return (
