@@ -9,8 +9,8 @@ from rest_framework.permissions import IsAuthenticated
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

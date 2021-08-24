@@ -6,10 +6,12 @@ function Message(props) {
     console.log(message)
   }
 
+  console.log(props)
   return (
     <div>
       <h1>MESSAGE</h1>
       {props.messages && props.messages.map(message => {
+        console.log(message)
         return (
           <div key={message.id}>
             <p>{message.sender}</p>
