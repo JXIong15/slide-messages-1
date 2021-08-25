@@ -12,22 +12,28 @@ import Compose from "./components/Compose";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useCookies, Cookies } from 'react-cookie';
 
 function Router() {
+  const [token] = useCookies(['mytoken'])
   return (
     <CookiesProvider>
       <BrowserRouter>
         <Header />
         <Switch>
 
-        <Route exact path="/" component={Login} />
-        <Route key="inbox" exact path="/inbox" component={App} />
-        {/* <Route exact path="/messages" component={Message} /> */}
-        {/* <Route exact path="/inbox" component={Inbox} /> */}
-        <Route key="sent" exact path="/sent" component={App} /> 
-        <Route exact path="/compose" component={Compose} />
-        
-        <Route path="*" component={Error} />
+          <Route exact path="/" component={Login} />
+          <Route key="inbox" exact path="/inbox">
+            <App token={token.mytoken} />
+          </Route>
+          {/* <Route exact path="/messages" component={Message} /> */}
+          {/* <Route exact path="/inbox" component={Inbox} /> */}
+          <Route key="sent" exact path="/sent">
+            <App token={token.mytoken} />
+          </Route>
+          <Route exact path="/compose" component={Compose} />
+
+          <Route path="*" component={Error} />
 
         </Switch>
         <Footer />
