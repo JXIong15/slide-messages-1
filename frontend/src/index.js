@@ -1,9 +1,6 @@
+import reportWebVitals from './reportWebVitals';
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider, useCookies } from 'react-cookie';
 import Login from './components/Login';
@@ -13,7 +10,9 @@ import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import API from "./utils/API";
-
+import App from './App';
+import './index.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Router() {
   const [token] = useCookies(['mytoken'])

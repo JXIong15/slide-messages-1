@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import API from "../utils/API";
 import { useCookies } from 'react-cookie';
 import Nav from "./Nav";
+import API from "../utils/API";
 
 function Message(props) {
   const [recipient, setRecipient] = useState("")
@@ -23,7 +23,6 @@ function Message(props) {
       .catch(err => console.log(err))
   })
 
-
   return (
     <div className="row">
       <Nav />
@@ -40,7 +39,7 @@ function Message(props) {
           <h3 className="col-md-7 message-title">{title}</h3>
           <button className="btn btn-danger col-md-1" onClick={() => props.deleteBtn(id)}>Delete</button>
           </div>
-          
+
           <p className="message-body">{body}</p>
           <div className="row">
             <div className="col-md-1">
