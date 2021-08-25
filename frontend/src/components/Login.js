@@ -22,17 +22,16 @@ function Login() {
     event.preventDefault();
     API.loginUser({ username, password })
       .then(res => {
-        console.log(res.data.token)
         setToken('mytoken', res.data.token)
+        localStorage.setItem('username', username)
       })
       .catch(err => console.log(err))
   }
 
-  const handleRegister = (event) => {
-    // event.preventDefault();
-    API.registerUser({username, password})
-    .then(res => handleLogin())
-    .catch(err => console.log(err))
+  const handleRegister = () => {
+    API.registerUser({ username, password })
+      .then(res => handleLogin())
+      .catch(err => console.log(err))
   }
 
   return (
@@ -43,7 +42,7 @@ function Login() {
           <input
             value={username}
             name="username"
-            onChange={e => setUsername(e.target.value)}
+            onChange={e => setUsername(e.target.value.toLowerCase())}
             type="username"
             placeholder="username"
           />
@@ -56,7 +55,7 @@ function Login() {
           />
 
           {isLogin ? <button className="btn btn-primary" onClick={handleLogin}>Login</button>
-          : <button className="btn btn-primary" onClick={handleRegister}>Register</button>}
+            : <button className="btn btn-primary" onClick={handleRegister}>Register</button>}
         </form>
       </div>
 
@@ -72,24 +71,6 @@ function Login() {
             <button className="btn btn-primary" onClick={() => setLogin(true)}> Login here!</button>
           </div>
         }
-
-        {/* <form className="form">
-          <input
-            value={this.state.username}
-            name="username"
-            onChange={this.handleInputChange}
-            type="username"
-            placeholder="username"
-          />
-          <input
-            value={this.state.password}
-            name="password"
-            onChange={this.handleInputChange}
-            type="password"
-            placeholder="Password"
-          />
-          <button onClick={this.handleFormSubmit}>Sign Up</button>
-        </form> */}
       </div>
     </div>
   );

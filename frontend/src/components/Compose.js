@@ -51,9 +51,9 @@ class Compose extends Component {
   render() {
     return (
         <div>
-          <p>
+          <h2>
             Compose Message
-          </p>
+          </h2>
           <form className="form">
             <input
               value={this.state.recipient}

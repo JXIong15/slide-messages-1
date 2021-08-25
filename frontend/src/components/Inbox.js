@@ -3,20 +3,15 @@ import React from "react";
 function Inbox(props) {
   console.log(props.messageList)
   return (
-    <div>
+    <div className="inbox">
       <h1>INBOX</h1>
 
       <table>
         <thead>
           <tr>
-            <th>Sender</th>
-            <th>
-              {/* ON CLICK: VIEW EMAIL */}
-              {/* <span onClick={() => props.sortBy("email")}> */}
-              Title
-              {/* </span> */}
-            </th>
-            <th>Delete</th>
+            <th width="30%">Sender</th>
+            <th>Title</th>
+            <th width="10%">Delete</th>
           </tr>
         </thead>
 

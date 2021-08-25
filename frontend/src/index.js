@@ -19,13 +19,16 @@ function Router() {
   return (
     <CookiesProvider>
       <BrowserRouter>
+        <Header />
         <Route exact path="/" component={Login} />
         <Route exact path="/inbox" component={App} />
         {/* <Route exact path="/messages" component={Message} /> */}
         {/* <Route exact path="/inbox" component={Inbox} /> */}
-        {/* <Route exact path="/sent" component={Sent} />
+        <Route exact path="/sent" component={Sent} /> 
         <Route exact path="/compose" component={Compose} />
-        <Route exact path="/error" component={Error} /> */}
+        {/* <Route exact path="/error" component={Error} /> */}
+
+        <Footer />
       </BrowserRouter>
     </CookiesProvider>
   )
@@ -34,11 +37,7 @@ function Router() {
 
 ReactDOM.render(
   <React.StrictMode>
-
-<Header />
     <Router />
-
-    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );

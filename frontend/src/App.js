@@ -7,24 +7,12 @@ import Error from "./components/Error";
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
-import { useHistory } from 'react-router-dom';
 import API from "./utils/API";
+import { Link } from 'react-router-dom';
 
 function App() {
   const [messageList, setMessageList] = useState([]);
-  const [token, setToken, removeToken] = useCookies(['mytoken'])
-  let history = useHistory()
-
-  useEffect(() => {
-    if (!token['mytoken']) {
-      history.push('/')
-    }
-  }, [token])
-
-  const logoutBtn = () => {
-    removeToken(['mytoken'])
-    setToken('mytoken', "")
-  }
+  const [token] = useCookies(['mytoken'])
 
   // gets all of the messages in the DB
   useEffect(() => {
@@ -34,9 +22,18 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <button onClick={logoutBtn} className="btn btn-primary">Logout</button>
-      <Inbox messageList={messageList}/>
+    <div className="row">
+      {/* navigation */}
+      <section className="nav col-sm-12 col-md-2">
+        <Link to="/compose" className="compose"><span>Compose</span></Link>
+        <Link to="/inbox">Inbox</Link>
+        <Link to="/sent">Sent</Link>
+      </section>
+
+      <section className="body-area col-sm-12 col-md-8">
+        <Inbox messageList={messageList}/>
+      </section>
+
 
     </div>
   );
