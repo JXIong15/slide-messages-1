@@ -12,7 +12,7 @@ import Compose from "./components/Compose";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useCookies, Cookies } from 'react-cookie';
+import { useCookies } from 'react-cookie';
 
 function Router() {
   const [token] = useCookies(['mytoken'])
