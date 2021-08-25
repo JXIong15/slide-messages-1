@@ -7,20 +7,33 @@ import { useCookies } from 'react-cookie';
 import API from "./utils/API";
 import { Link } from 'react-router-dom';
 
+function getAllMessages(token) {
+  // useEffect(() => {
+    API.getMessages(token.mytoken)
+      .then(res => {
+        console.log(res.data)
+        return res.data
+      })
+      .catch(err => console.log(err))
+  // }, [])
+}
+
+
+
 function App() {
-  const [messageList, setMessageList] = useState([]);
+  const [token] = useCookies(['mytoken'])
+  const [messageList, setMessageList] = useState(getAllMessages(token));
   const [userMessageList, setUserMessageList] = useState([]);
   const [username] = useState(localStorage.getItem("username"))
   const [urlPage] = useState(window.location.pathname.split("/").pop());
-  const [token] = useCookies(['mytoken'])
 
   // gets all of the messages in the DB
-  useEffect(() => {
-    console.log(urlPage)
-    API.getMessages(token['mytoken'])
-      .then(res => setMessageList(res.data))
-      .catch(err => console.log(err))
-  }, [])
+  // useEffect(() => {
+  //   console.log(urlPage)
+  //   API.getMessages(token['mytoken'])
+  //     .then(res => setMessageList(res.data))
+  //     .catch(err => console.log(err))
+  // }, [])
 
   // useEffect(() => {
   //   let arr = [];
