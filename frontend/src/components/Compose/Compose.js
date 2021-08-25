@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
 import Form from "react-bootstrap/Form";
 import "./compose.css";
@@ -34,6 +35,7 @@ class Compose extends Component {
   render() {
     return (
       <div className="row">
+        <Header />
         <Nav />
 
         <div className="body-area col-sm-12 col-md-8">

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import API from "./utils/API";
 import './App.css';
@@ -45,6 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="row">
+        <Header />
         <Nav />
   
         <section className="body-area col-sm-12 col-md-8">

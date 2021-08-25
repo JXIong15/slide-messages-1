@@ -1,0 +1,27 @@
+header h1 {
+    color: black;
+}
+
+header {
+    text-align: center;
+    display: flex;
+}
+
+.login section {
+   border: solid;
+   border-radius: 15px;
+   margin: 30px;
+   padding: 20px;
+   background-color: antiquewhite;
+   text-align: center;
+   font-size: larger;
+}
+
+.login .login-form {
+    text-align: left;
+}
+
+.login .login-form label {
+    color: black;
+    margin-top: 10px;;
+}

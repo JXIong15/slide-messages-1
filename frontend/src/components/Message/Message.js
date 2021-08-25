@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
+import Header from "../Header/Header";
 import Nav from "../Nav/Nav";
 import API from "../../utils/API";
 import "./message.css"
@@ -26,6 +27,7 @@ function Message(props) {
 
   return (
     <div className="row">
+      <Header />
       <Nav />
 
       <div className="body-area col-sm-12 col-md-8">

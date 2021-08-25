@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider, useCookies } from 'react-cookie';
@@ -7,7 +7,6 @@ import Login from './components/Login/Login';
 import Message from "./components/Message/Message";
 import Compose from "./components/Compose/Compose";
 import Error from "./components/Error/Error";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import API from "./utils/API";
 import App from './App';
@@ -24,7 +23,7 @@ function Router() {
     API.deleteMessage(id, token.mytoken)
       .then(res => {
         // if (urlPage === "inbox" || urlPage === "sent") {
-          window.location.reload(false);
+        window.location.reload(false);
         // }
         // else {
         //   window.history.back();
@@ -38,30 +37,29 @@ function Router() {
   return (
     <CookiesProvider>
       <BrowserRouter>
-        <Header />
         <Switch>
           <Route exact path="/" component={Login} />
           <Route key="inbox" exact path="/inbox">
-            <App 
-              token={token.mytoken} 
+            <App
+              token={token.mytoken}
               deleteBtn={deleteBtn}
-              />
+            />
           </Route>
           <Route key="sent" exact path="/sent">
-            <App 
-              token={token.mytoken} 
+            <App
+              token={token.mytoken}
               deleteBtn={deleteBtn}
             />
           </Route>
           <Route exact path="/message/:id">
             <Message
-              token={token.mytoken} 
+              token={token.mytoken}
               deleteBtn={deleteBtn}
             />
           </Route>
           <Route exact path="/compose">
             <Compose token={token.mytoken} />
-          </Route> 
+          </Route>
           <Route path="*" component={Error} />
         </Switch>
         <Footer />
