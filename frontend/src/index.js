@@ -19,16 +19,16 @@ function Router() {
   const [urlPage] = useState(window.location.pathname.split("/").pop())
 
   // after message is deleted, page is reloaded to indicate that
-  // if user is viewing an individual message and deletes it, the user is then brought to the previous page
+  // TO-DO: if user is viewing an individual message and deletes it, the user is then brought to the previous page
   const deleteBtn = (id) => {
     API.deleteMessage(id, token.mytoken)
       .then(res => {
-        if (urlPage === "inbox" || urlPage === "sent") {
+        // if (urlPage === "inbox" || urlPage === "sent") {
           window.location.reload(false);
-        }
-        else {
-          window.history.back();
-        }
+        // }
+        // else {
+        //   window.history.back();
+        // }
       })
       .catch(err => {
         console.log(err)
