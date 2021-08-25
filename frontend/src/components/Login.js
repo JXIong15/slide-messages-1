@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 
+// Login/Registration Credit: Parwiz Forogh (https://www.youtube.com/watch?v=VBqJ0-imSMU&t=21920s)
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ function Login() {
   }, [token])
 
 
-  const handleLogin = (event) => {
+  const handleLogin = event => {
     event.preventDefault();
     API.loginUser({ username, password })
       .then(res => {
@@ -58,7 +59,6 @@ function Login() {
             : <button className="btn btn-primary" onClick={handleRegister}>Register</button>}
         </form>
       </div>
-
 
       <div className="col-6">
         {isLogin ?

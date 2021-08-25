@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 export default {
     // Messages APIs
     getMessages: function(token) {

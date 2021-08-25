@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { useCookies } from 'react-cookie';
+import Nav from "./Nav";
 
 function Message(props) {
   const [recipient, setRecipient] = useState("")
@@ -24,19 +25,26 @@ function Message(props) {
 
 
   return (
-    <div>
-      <h1 className="m-h1">MESSAGE</h1>
+    <div className="row">
+      <Nav />
 
-      <div className="message">
-        <div className="message-head">
-          <p><span>From: </span> {sender}</p>
-          <p><span>To: </span> {recipient}</p>
-          <p><span>Subject: </span> {title}</p>
-        </div>
-        <button className="btn btn-danger" onClick={() => props.deleteBtn(id)}>Delete</button>
-        <p className="message-body">{body}</p>
-        <div className="row">
-          <div className="col-md-1">
+      <div className="body-area col-sm-12 col-md-8">
+        <h1 className="m-h1">MESSAGE</h1>
+
+        <div className="message">
+          <div className="message-top row">
+          <div className="message-head col-md-3">
+            <p><span>From: </span> {sender}</p>
+            <p><span>To: </span> {recipient}</p>
+          </div>
+          <h3 className="col-md-7 message-title">{title}</h3>
+          <button className="btn btn-danger col-md-1" onClick={() => props.deleteBtn(id)}>Delete</button>
+          </div>
+          
+          <p className="message-body">{body}</p>
+          <div className="row">
+            <div className="col-md-1">
+            </div>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, BrowserRouter, Switch, Redirect, useHistory } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider, useCookies } from 'react-cookie';
 import Login from './components/Login';
 import Message from "./components/Message";
@@ -18,18 +18,16 @@ import API from "./utils/API";
 function Router() {
   const [token] = useCookies(['mytoken'])
   const [urlPage] = useState(window.location.pathname.split("/").pop())
-  let history = useHistory();
 
+  // after message is deleted, page is reloaded to indicate that
+  // if user is viewing an individual message and deletes it, the user is then brought to the previous page
   const deleteBtn = (id) => {
     API.deleteMessage(id, token.mytoken)
       .then(res => {
-        console.log(urlPage === "inbox")
-        console.log(urlPage)
         if (urlPage === "inbox" || urlPage === "sent") {
           window.location.reload(false);
         }
         else {
-          console.log("HERE")
           window.history.back();
         }
       })
@@ -38,13 +36,11 @@ function Router() {
       });
   }
 
-
   return (
     <CookiesProvider>
       <BrowserRouter>
         <Header />
         <Switch>
-
           <Route exact path="/" component={Login} />
           <Route key="inbox" exact path="/inbox">
             <App 
@@ -64,12 +60,10 @@ function Router() {
               deleteBtn={deleteBtn}
             />
           </Route>
-          {/* <Route exact path="/inbox" component={Inbox} /> */}
-          
-          <Route exact path="/compose" component={Compose} />
-
+          <Route exact path="/compose">
+            <Compose token={token.mytoken} />
+          </Route> 
           <Route path="*" component={Error} />
-
         </Switch>
         <Footer />
       </BrowserRouter>

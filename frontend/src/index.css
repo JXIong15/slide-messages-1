@@ -25,9 +25,10 @@ header h1 {
 }
 
 footer {
+  margin-top: 30px;
   text-align: center;
   padding: 10px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
   background-color: #f7c331;
