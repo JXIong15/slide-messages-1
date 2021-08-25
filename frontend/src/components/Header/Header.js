@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import "./header.css";
 
-function Heading() {
+function Header() {
   const [token, setToken, removeToken] = useCookies(['mytoken'])
   let history = useHistory()
 
@@ -31,4 +32,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export default Header;

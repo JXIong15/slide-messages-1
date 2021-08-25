@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import Nav from "./Nav";
+import API from "../../utils/API";
+import Nav from "../Nav/Nav";
+import Form from "react-bootstrap/Form";
+import "./compose.css";
 
 class Compose extends Component {
   state = {
@@ -38,37 +40,40 @@ class Compose extends Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         <Nav />
 
         <div className="body-area col-sm-12 col-md-8">
-        <h2>
+        <h1>
           COMPOSE MESSAGE
-        </h2>
-        <form className="form">
-          <input
+        </h1>
+        <Form className="form">
+          <Form.Label className="form-label">Recipient:</Form.Label>
+          <Form.Control
             value={this.state.recipient}
             name="recipient"
             onChange={e => this.setState({ recipient: e.target.value.toLowerCase() })}
             type="text"
-            placeholder="Recipient"
+            placeholder="Who is this message going to?"
           />
-          <input
+          <Form.Label className="form-label">Title:</Form.Label>
+          <Form.Control
             value={this.state.title}
             name="title"
             onChange={e => this.setState({ title: e.target.value })}
             type="text"
-            placeholder="Title"
+            placeholder="Don't forget a subject title!"
           />
-          <input
+          <Form.Label className="form-label">Message:</Form.Label>
+          <Form.Control
+            className="text-body"
             value={this.state.body}
             name="body"
             onChange={e => this.setState({ body: e.target.value })}
-            type="textarea"
-            placeholder="Body"
+            placeholder="Type your message here!"
           />
-          <button onClick={this.handleFormSubmit}>Send</button>
-        </form>
+          <button className="btn btn-primary" onClick={this.handleFormSubmit}>Send</button>
+        </Form>
       </div>
       </div>
     );

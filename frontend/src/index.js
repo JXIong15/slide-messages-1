@@ -3,12 +3,12 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider, useCookies } from 'react-cookie';
-import Login from './components/Login';
-import Message from "./components/Message";
-import Compose from "./components/Compose";
-import Error from "./components/Error";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Login from './components/Login/Login';
+import Message from "./components/Message/Message";
+import Compose from "./components/Compose/Compose";
+import Error from "./components/Error/Error";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import API from "./utils/API";
 import App from './App';
 import './index.css';
@@ -27,7 +27,8 @@ function Router() {
           window.location.reload(false);
         }
         else {
-          window.history.back();
+          console.log("ERROR")
+        //   window.history.back();
         }
       })
       .catch(err => {

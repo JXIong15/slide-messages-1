@@ -1,0 +1,16 @@
+.nav {
+    flex-direction: column;
+    margin: 30px;
+    padding: 30px;
+    background-color: #dcc7aa;
+    border-radius: 15px;
+    color: rgb(87, 87, 87);
+    text-align: center;
+    font-size: larger;
+  }
+  
+  .nav a:visited,
+  a:link {
+    color: rgb(87, 87, 87);
+    text-decoration: none;
+  }

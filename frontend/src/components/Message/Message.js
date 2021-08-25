@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
-import Nav from "./Nav";
-import API from "../utils/API";
+import Nav from "../Nav/Nav";
+import API from "../../utils/API";
+import "./message.css"
 
 function Message(props) {
   const [recipient, setRecipient] = useState("")

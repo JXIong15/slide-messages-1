@@ -1,4 +1,5 @@
 import React from "react";
+import "./error.css";
 
 // From Trilogy Coding Bootcamps
 function Error() {

@@ -1,0 +1,11 @@
+header {
+    background-color: #f7c331;
+    padding: 20px;
+    color: #6b7a8f;
+    margin-bottom: 30px;
+  }
+  
+  header h1 {
+    display: flex;
+    justify-content: space-between;
+  }

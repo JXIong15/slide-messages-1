@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
-import API from "../utils/API";
+import API from "../../utils/API";
 
 // Login/Registration Credit: Parwiz Forogh (https://www.youtube.com/watch?v=VBqJ0-imSMU&t=21920s)
 function Login() {
