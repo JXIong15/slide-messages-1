@@ -15,30 +15,46 @@ class App extends Component {
     urlPage:window.location.pathname.split("/").pop()
   }
 
-// gets all the messages from the DB and filters through it to create another array appropriate for the logged in user
+// gets all the messages from the DB 
   componentDidMount() {
     API.getMessages(this.state.token)
       .then(res => {
         this.setState({messageList:res.data})
       })
       .then(res2 => {
-        let arr = []
-        this.state.messageList.forEach((message) => {
-          if (this.state.urlPage === "inbox") {
-            if (message.recipient === this.state.username) {
-              arr.push(message);
-            }
-          }
-          else {
-            if (message.sender === this.state.username) {
-              arr.push(message);
-            }
-          }
-        })
-        this.setState({userMessageList:arr})
+        this.createUserList();
       })
   }
 
+  // filters through all messages to create another array appropriate for the logged in user
+  createUserList = () => {
+    let arr = []
+    this.state.messageList.forEach((message) => {
+      if (this.state.urlPage === "inbox") {
+        if (message.recipient === this.state.username) {
+          arr.push(message);
+        }
+      }
+      else {
+        if (message.sender === this.state.username) {
+          arr.push(message);
+        }
+      }
+    })
+    this.setState({userMessageList:arr})
+  }
+
+  // TO-DO: PASS THIS TO MESSAGES
+  deleteBtn = (id) => {
+    API.deleteMessage(id, this.props.token)
+      .then(res => {
+        window.location.reload(false);
+      })
+      .catch(err => {
+        alert("Message could NOT be deleted");
+        console.log(err)
+      });
+  }
 
 
   render() {
@@ -61,8 +77,6 @@ class App extends Component {
               <tbody>
                 {(this.state.userMessageList && this.state.userMessageList.length > 0) ?
                   this.state.userMessageList.map((message) => {
-                    console.log(message.sender);
-                    console.log(this.state.urlPage === "inbox");
                     return (
                       <tr>
                       <td>
@@ -72,7 +86,7 @@ class App extends Component {
                         <p>{message.title}</p>
                         </td>
                       <td>
-                        <button className="btn btn-danger">Delete</button>
+                      <button className="btn btn-danger" onClick={() => this.deleteBtn(message.id)}>Delete</button>
                       </td>
                     </tr>
                     )
