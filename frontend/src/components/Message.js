@@ -27,13 +27,23 @@ function Message(props) {
   return (
     <div>
       <h1>MESSAGE</h1>
-      <p>From {sender}</p>
-      <p>To {recipient}</p>
-      <p>Subject: {title}</p>
-      <p>{body}</p>
-      <div className="row">
-        <div className="col-md-1">
-          {/* <button className="btn btn-danger" onClick={() => deleteBtn(props.match.params.id)}>Delete</button> */}
+
+      <div className="message">
+        {/* <div className="message-top"> */}
+        <div className="message-head">
+          <p><span>From: </span> {sender}</p>
+          <p><span>To: </span> {recipient}</p>
+          <p><span>Subject: </span> {title}</p>
+        </div>
+        <button className="btn btn-danger">Delete</button>
+        {/* </div> */}
+
+        <p className="message-body">{body}</p>
+        <div className="row">
+          <div className="col-md-1">
+
+            {/* <button className="btn btn-danger" onClick={() => deleteBtn(props.match.params.id)}>Delete</button> */}
+          </div>
         </div>
       </div>
     </div>

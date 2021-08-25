@@ -85,3 +85,50 @@ tr td {
 table {
   width: 100%;
 }
+
+.message {
+  background-color: blanchedalmond;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: solid;
+  border-radius: 15px;
+  font-size: larger;
+}
+
+.message-head {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  justify-content: left;
+  margin-bottom: 20px;
+  margin-right: auto;
+}
+
+.message-head span {
+  font-weight: bold;
+}
+
+.message-head p {
+  margin: 0;
+}
+
+.message-body {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.message-top {
+
+}
+
+.message button {
+  margin-left: auto;
+  margin-top: -7%;
+  margin-bottom: 30px;
+}

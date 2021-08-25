@@ -1,8 +1,8 @@
 # slide-messages-1
 
-to;do
+to-do
 * link messages to overall big message
-* delete messages
+    * delete messages
 * add messages
 * deploy
 * css
