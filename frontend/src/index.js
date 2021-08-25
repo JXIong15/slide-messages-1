@@ -7,8 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 import Login from './components/Login';
-import Inbox from "./components/Inbox";
-import Sent from "./components/Sent";
 import Message from "./components/Message";
 import Compose from "./components/Compose";
 import Error from "./components/Error";
@@ -23,10 +21,10 @@ function Router() {
         <Switch>
 
         <Route exact path="/" component={Login} />
-        <Route exact path="/inbox" component={App} />
+        <Route key="inbox" exact path="/inbox" component={App} />
         {/* <Route exact path="/messages" component={Message} /> */}
         {/* <Route exact path="/inbox" component={Inbox} /> */}
-        <Route exact path="/sent" component={Sent} /> 
+        <Route key="sent" exact path="/sent" component={App} /> 
         <Route exact path="/compose" component={Compose} />
         
         <Route path="*" component={Error} />

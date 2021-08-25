@@ -49,4 +49,11 @@ footer a:hover {
   color: blue;
 }
 
-
+.error {
+  text-align: center;
+  background-color: #dcc7aa;
+  border-radius: 15px;
+  margin: 30%;
+  padding: 10px;
+  margin-top: 10%;
+}

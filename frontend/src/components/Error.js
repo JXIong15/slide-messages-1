@@ -2,12 +2,12 @@ import React from "react";
 
 function Error() {
   return (
-    <div>
+    <div className="error">
       <h1>404 Page Not Found</h1>
       <h1>
-        <span role="img" aria-label="Face With Rolling Eyes Emoji">
+        <p role="img" aria-label="Face With Rolling Eyes Emoji">
           🙄
-        </span>
+        </p>
       </h1>
     </div>
   );
