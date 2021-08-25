@@ -4,6 +4,7 @@ import Sent from "./components/Sent";
 import Message from "./components/Message";
 import Compose from "./components/Compose";
 import Error from "./components/Error";
+import Nav from "./components/Nav";
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
@@ -24,11 +25,7 @@ function App() {
   return (
     <div className="row">
       {/* navigation */}
-      <section className="nav col-sm-12 col-md-2">
-        <Link to="/compose" className="compose"><span>Compose</span></Link>
-        <Link to="/inbox">Inbox</Link>
-        <Link to="/sent">Sent</Link>
-      </section>
+      <Nav />
 
       <section className="body-area col-sm-12 col-md-8">
         <Inbox messageList={messageList}/>
