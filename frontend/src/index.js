@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 import Login from './components/Login';
 import Inbox from "./components/Inbox";
@@ -20,14 +20,18 @@ function Router() {
     <CookiesProvider>
       <BrowserRouter>
         <Header />
+        <Switch>
+
         <Route exact path="/" component={Login} />
         <Route exact path="/inbox" component={App} />
         {/* <Route exact path="/messages" component={Message} /> */}
         {/* <Route exact path="/inbox" component={Inbox} /> */}
         <Route exact path="/sent" component={Sent} /> 
         <Route exact path="/compose" component={Compose} />
-        {/* <Route exact path="/error" component={Error} /> */}
+        
+        <Route path="*" component={Error} />
 
+        </Switch>
         <Footer />
       </BrowserRouter>
     </CookiesProvider>
