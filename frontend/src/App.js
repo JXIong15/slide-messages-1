@@ -11,7 +11,7 @@ class App extends Component {
     messageList:[],
     userMessageList:[],
     username:localStorage.getItem("username"),
-    urlPage:window.location.pathname.split("/").pop()
+    urlPage: window.location.pathname.split("/").pop()
   }
 
 // gets all the messages from the DB 

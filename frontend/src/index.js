@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch, Redirect, useHistory } from 'react-router-dom';
 import { CookiesProvider, useCookies } from 'react-cookie';
 import Login from './components/Login';
 import Message from "./components/Message";
@@ -12,21 +12,28 @@ import Compose from "./components/Compose";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 import API from "./utils/API";
 
 
 function Router() {
   const [token] = useCookies(['mytoken'])
-
+  const [urlPage] = useState(window.location.pathname.split("/").pop())
+  let history = useHistory();
 
   const deleteBtn = (id) => {
     API.deleteMessage(id, token.mytoken)
       .then(res => {
-        window.location.reload(false);
+        console.log(urlPage === "inbox")
+        console.log(urlPage)
+        if (urlPage === "inbox" || urlPage === "sent") {
+          window.location.reload(false);
+        }
+        else {
+          console.log("HERE")
+          window.history.back();
+        }
       })
       .catch(err => {
-        alert("Message could NOT be deleted");
         console.log(err)
       });
   }
