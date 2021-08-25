@@ -44,17 +44,6 @@ class App extends Component {
     this.setState({userMessageList:arr})
   }
 
-  // TO-DO: PASS THIS TO MESSAGES
-  // deleteBtn = (id) => {
-  //   API.deleteMessage(id, this.props.token)
-  //     .then(res => {
-  //       window.location.reload(false);
-  //     })
-  //     .catch(err => {
-  //       alert("Message could NOT be deleted");
-  //       console.log(err)
-  //     });
-  // }
 
 
   render() {

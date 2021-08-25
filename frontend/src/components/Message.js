@@ -8,11 +8,11 @@ function Message(props) {
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
   const [token] = useCookies(['mytoken'])
+  const [id] = useState(window.location.href.split('/').pop())
 
-  console.log(token.mytoken)
-
+  // Gets the specified message
   useEffect(() => {
-    API.getOneMessage(props.match.params.id, token.mytoken)
+    API.getOneMessage(id, token.mytoken)
       .then(res => {
         setRecipient(res.data.recipient)
         setSender(res.data.sender)
@@ -33,13 +33,10 @@ function Message(props) {
           <p><span>To: </span> {recipient}</p>
           <p><span>Subject: </span> {title}</p>
         </div>
-        <button className="btn btn-danger">Delete</button>
-
+        <button className="btn btn-danger" onClick={() => props.deleteBtn(id)}>Delete</button>
         <p className="message-body">{body}</p>
         <div className="row">
           <div className="col-md-1">
-
-            {/* <button className="btn btn-danger" onClick={() => deleteBtn(props.match.params.id)}>Delete</button> */}
           </div>
         </div>
       </div>

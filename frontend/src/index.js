@@ -45,11 +45,20 @@ function Router() {
               deleteBtn={deleteBtn}
               />
           </Route>
-          <Route exact path="/message/:id" component={Message} />
-          {/* <Route exact path="/inbox" component={Inbox} /> */}
           <Route key="sent" exact path="/sent">
-            <App token={token.mytoken} />
+            <App 
+              token={token.mytoken} 
+              deleteBtn={deleteBtn}
+            />
           </Route>
+          <Route exact path="/message/:id">
+            <Message
+              token={token.mytoken} 
+              deleteBtn={deleteBtn}
+            />
+          </Route>
+          {/* <Route exact path="/inbox" component={Inbox} /> */}
+          
           <Route exact path="/compose" component={Compose} />
 
           <Route path="*" component={Error} />
