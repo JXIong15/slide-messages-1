@@ -15,18 +15,15 @@ class App extends Component {
     urlPage:window.location.pathname.split("/").pop()
   }
 
-
+// gets all the messages from the DB and filters through it to create another array appropriate for the logged in user
   componentDidMount() {
     API.getMessages(this.state.token)
       .then(res => {
         this.setState({messageList:res.data})
-        console.log(this.state.messageList)
       })
       .then(res2 => {
-        console.log("sexond", this.state.messageList)
         let arr = []
         this.state.messageList.forEach((message) => {
-          console.log(message);
           if (this.state.urlPage === "inbox") {
             if (message.recipient === this.state.username) {
               arr.push(message);
@@ -38,51 +35,21 @@ class App extends Component {
             }
           }
         })
-        console.log("arr", arr)
+        this.setState({userMessageList:arr})
+        // console.log("after",this.state.userMessageList)
       })
   }
 
 
-  // gets all of the messages in the DB
-  // useEffect(() => {
-  //   API.getMessages(token['mytoken'])
-  //     .then(res => { 
-  //       // console.log(res.data)
-  //       setMessageList(res.data)
-  //       // console.log(messageList)
-  //     })
-  //     .then(res2 => {
-  //       // console.log("second")
-  //       // console.log(messageList)
-  //       let arr = []
-  //       // messageList.forEach((message) => {
-  //       //   console.log(message);
-  //       //   if (urlPage === "inbox") {
-  //       //     if (message.recipient === username) {
-  //       //       arr.push(message);
-  //       //     }
-  //       //   }
-  //       //   else {
-  //       //     if (message.sender === username) {
-  //       //       arr.push(message);
-  //       //     }
-  //       //   }
-  //       // })
-  //       // console.log(arr)
-  //     })
-  //     .catch(err => console.log(err))
-  // }, [])
 
   render() {
     return (
       <div className="row">
-        {/* navigation */}
         <Nav />
   
         <section className="body-area col-sm-12 col-md-8">
           <div className="inbox">
             <h1>{this.state.urlPage === "inbox" ? "INBOX" : "SENT"}</h1>
-  
             <table>
               <thead>
                 <tr>
@@ -95,6 +62,7 @@ class App extends Component {
               <tbody>
                 {this.state.userMessageList && this.state.userMessageList.length > 0 ?
                   this.state.userMessageList.map((message) => {
+                    console.log(message.sender);
                     <tr>
                       <td>
                         <p>{this.state.urlPage === "inbox" ? message.sender : message.recipient}</p>
