@@ -26,14 +26,7 @@ class Compose extends Component {
         body: this.state.body,
       }, this.state.token)
         .then(resp => alert(`Message sent to ${this.state.recipient}`))
-        .then(res => {
-          this.setState({
-            recipient: "",
-            sender: "",
-            title: "",
-            body: "",
-          });
-        })
+        .then(res => window.location.reload(false))
         .catch(error => console.log(error))
     }
   };

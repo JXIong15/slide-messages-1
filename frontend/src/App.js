@@ -15,7 +15,6 @@ class App extends Component {
 
 // gets all the messages from the DB 
   componentDidMount() {
-    console.log(this.props)
     API.getMessages(this.state.token)
       .then(res => {
         this.setState({messageList:res.data})

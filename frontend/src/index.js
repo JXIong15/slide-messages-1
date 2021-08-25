@@ -27,8 +27,7 @@ function Router() {
           window.location.reload(false);
         }
         else {
-          console.log("ERROR")
-        //   window.history.back();
+          window.history.back();
         }
       })
       .catch(err => {
