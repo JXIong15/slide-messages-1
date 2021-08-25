@@ -11,6 +11,13 @@ export default {
             }
         })
     },
+    getOneMessage: function(id, token) {
+        return axios.get(`http://127.0.0.1:8000/api/messages/${id}`, {
+            headers:{
+                authorization:`Token ${token}`
+            }
+        })
+    },
     newMessage: function(message, token) {
         return axios.post("http://127.0.0.1:8000/api/messages/", message, {
             headers:{

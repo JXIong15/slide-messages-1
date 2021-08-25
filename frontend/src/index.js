@@ -5,14 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import { CookiesProvider } from 'react-cookie';
+import { CookiesProvider, useCookies } from 'react-cookie';
 import Login from './components/Login';
 import Message from "./components/Message";
 import Compose from "./components/Compose";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useCookies } from 'react-cookie';
 
 function Router() {
   const [token] = useCookies(['mytoken'])
@@ -26,7 +25,7 @@ function Router() {
           <Route key="inbox" exact path="/inbox">
             <App token={token.mytoken} />
           </Route>
-          {/* <Route exact path="/messages" component={Message} /> */}
+          <Route exact path="/message/:id" component={Message} />
           {/* <Route exact path="/inbox" component={Inbox} /> */}
           <Route key="sent" exact path="/sent">
             <App token={token.mytoken} />

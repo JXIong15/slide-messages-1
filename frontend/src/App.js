@@ -2,7 +2,6 @@ import Message from "./components/Message";
 import Nav from "./components/Nav";
 import './App.css';
 import React, { useState, useEffect, Component } from "react";
-import { useCookies, Cookies } from 'react-cookie';
 import API from "./utils/API";
 import { Link } from 'react-router-dom';
 
@@ -83,7 +82,7 @@ class App extends Component {
                         <p>{this.state.urlPage === "inbox" ? message.sender : message.recipient}</p>
                       </td>
                       <td>
-                        <p>{message.title}</p>
+                        <Link to={`/message/${message.id}`} params={{message:message}}>{message.title}</Link>
                         </td>
                       <td>
                       <button className="btn btn-danger" onClick={() => this.deleteBtn(message.id)}>Delete</button>
