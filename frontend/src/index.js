@@ -13,8 +13,25 @@ import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import API from "./utils/API";
+
+
 function Router() {
   const [token] = useCookies(['mytoken'])
+
+
+  const deleteBtn = (id) => {
+    API.deleteMessage(id, token.mytoken)
+      .then(res => {
+        window.location.reload(false);
+      })
+      .catch(err => {
+        alert("Message could NOT be deleted");
+        console.log(err)
+      });
+  }
+
+
   return (
     <CookiesProvider>
       <BrowserRouter>
@@ -23,7 +40,10 @@ function Router() {
 
           <Route exact path="/" component={Login} />
           <Route key="inbox" exact path="/inbox">
-            <App token={token.mytoken} />
+            <App 
+              token={token.mytoken} 
+              deleteBtn={deleteBtn}
+              />
           </Route>
           <Route exact path="/message/:id" component={Message} />
           {/* <Route exact path="/inbox" component={Inbox} /> */}

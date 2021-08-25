@@ -123,8 +123,9 @@ table {
   padding: 20px;
 }
 
-.message-top {
-
+.m-h1 {
+  margin: 20px;
+  color: antiquewhite;
 }
 
 .message button {

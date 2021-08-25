@@ -16,6 +16,7 @@ class App extends Component {
 
 // gets all the messages from the DB 
   componentDidMount() {
+    console.log(this.props)
     API.getMessages(this.state.token)
       .then(res => {
         this.setState({messageList:res.data})
@@ -44,16 +45,16 @@ class App extends Component {
   }
 
   // TO-DO: PASS THIS TO MESSAGES
-  deleteBtn = (id) => {
-    API.deleteMessage(id, this.props.token)
-      .then(res => {
-        window.location.reload(false);
-      })
-      .catch(err => {
-        alert("Message could NOT be deleted");
-        console.log(err)
-      });
-  }
+  // deleteBtn = (id) => {
+  //   API.deleteMessage(id, this.props.token)
+  //     .then(res => {
+  //       window.location.reload(false);
+  //     })
+  //     .catch(err => {
+  //       alert("Message could NOT be deleted");
+  //       console.log(err)
+  //     });
+  // }
 
 
   render() {
@@ -85,7 +86,7 @@ class App extends Component {
                         <Link to={`/message/${message.id}`} params={{message:message}}>{message.title}</Link>
                         </td>
                       <td>
-                      <button className="btn btn-danger" onClick={() => this.deleteBtn(message.id)}>Delete</button>
+                      <button className="btn btn-danger" onClick={() => this.props.deleteBtn(message.id)}>Delete</button>
                       </td>
                     </tr>
                     )
