@@ -8,6 +8,7 @@ to-do
 
 known bugs
 * logging in sometimes doesn't have the inbox messages displayed. Refreshing the page fixes this
+* can't style `PATH`s
 
 ## Future Ideas
 * get page to reroute accurately once a Message (message being viewed) is deleted

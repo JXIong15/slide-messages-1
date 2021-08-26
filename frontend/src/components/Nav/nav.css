@@ -14,3 +14,21 @@
     color: rgb(87, 87, 87);
     text-decoration: none;
   }
+
+  .compose-btn span {
+    background-color: #ac3b61;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 7px;
+    color: white
+  }
+
+.nav a,
+.nav a:visited {
+  background-color: #dcc7aa;
+  margin: 10px;
+}
+
+.nav a:hover {
+  color: #ac3b61;
+}

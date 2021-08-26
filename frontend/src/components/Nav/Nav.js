@@ -5,7 +5,7 @@ import "./nav.css";
 function Nav() {
   return (
       <section className="nav col-sm-12 col-md-2">
-        <Link to="/compose" className="compose"><span>Compose</span></Link>
+        <Link to="/compose" className="compose-btn"><span>Compose</span></Link>
         <Link to="/inbox">Inbox</Link>
         <Link to="/sent">Sent</Link>
       </section>

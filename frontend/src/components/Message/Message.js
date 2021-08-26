@@ -31,7 +31,7 @@ function Message(props) {
       <Nav />
 
       <div className="body-area col-sm-12 col-md-8">
-        <h1 className="m-h1">MESSAGE</h1>
+        <h1>MESSAGE</h1>
 
         <div className="message">
           <div className="message-top row">

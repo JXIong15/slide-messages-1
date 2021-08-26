@@ -1,11 +1,40 @@
 header {
-    background-color: #f7c331;
+    background-color: #123c69;
     padding: 20px;
-    color: #6b7a8f;
+    color: #123c69;
     margin-bottom: 30px;
+    display: flex;
+   justify-content: space-between;
   }
   
-  header h1 {
-    display: flex;
-    justify-content: space-between;
-  }
+header h1 {
+  background-color: #123c69;
+  font-weight: bolder;
+}
+
+header a:visited {
+  color: #123c69;
+}
+
+header a {
+  background-color: #6b7a8f;
+  margin-left: 20px;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+/* doesn't work */
+header path {
+  background-color: #123c69;
+}
+
+header div {
+  background-color: #123c69;
+  display: flex; 
+  justify-content: space-between;
+  width: 100vw;
+}
+
+header button {
+  margin-right: 30px;
+}

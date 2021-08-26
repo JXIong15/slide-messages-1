@@ -50,11 +50,21 @@ thead th, tr td {
 }
 
 thead th {
-  background-color: #f7882f;
+  background-color: #bab2b5;
 }
 
-tr td {
+tr td,
+tr p,
+tr a {
   background-color: #dcc7aa;
+}
+
+tr a:hover {
+  color: #ac3b61;
+}
+
+tr a:visited {
+  color: #123c69;
 }
 
 table {
@@ -62,5 +72,5 @@ table {
 }
 
 h1{
-  color: antiquewhite;
+  color: #ac3b61;
 }

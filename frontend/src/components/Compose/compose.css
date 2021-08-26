@@ -1,5 +1,5 @@
 .form .form-label {
-    color: antiquewhite;
+    color: #123c69;
     margin-bottom: 0px;
     margin-top: 5px;
   }
@@ -13,10 +13,4 @@
     height: 200px;
   }
 
-  .compose span {
-    background-color: #f7882f;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 7px;
-    color: white
-  }
+ 

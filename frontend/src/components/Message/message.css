@@ -1,5 +1,5 @@
 .message {
-    background-color: blanchedalmond;
+    background-color: #dcc7aa;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -8,6 +8,8 @@
     border: solid;
     border-radius: 15px;
     font-size: larger;
+    border-width: 5px;
+    border-color: #123c69;
   }
   
   .message-head {
@@ -22,10 +24,12 @@
   
   .message-head span {
     font-weight: bold;
+    background-color: white;
   }
   
   .message-head p {
     margin: 0;
+    background-color: white;
   }
   
   .message-body {
@@ -34,20 +38,17 @@
     padding: 20px;
   }
   
-  .m-h1 {
-    margin: 20px;
-    color: antiquewhite;
-  }
-  
   .message button {
     margin: 30px;
   }
   
   .message-top {
-    width: 100%
+    background-color: #dcc7aa;
+    width: 100%;
   }
   
   .message .message-title {
     text-align: center;
     margin-top: 30px;
+    background-color: #dcc7aa;
   }

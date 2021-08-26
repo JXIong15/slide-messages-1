@@ -1,5 +1,8 @@
-header h1 {
-    color: black;
+.login-header h1 {
+    background-color: #6b7a8f;
+    color: #123c69;
+    border-radius: 10px;
+    padding: 7px;
 }
 
 header {
@@ -12,16 +15,34 @@ header {
    border-radius: 15px;
    margin: 30px;
    padding: 20px;
-   background-color: antiquewhite;
+   background-color: #dcc7aa;
    text-align: center;
    font-size: larger;
 }
 
 .login .login-form {
     text-align: left;
+    background-color: #dcc7aa;
+}
+
+.login-form h2,
+.login-form form {
+    background-color: #dcc7aa;
+    color: #ac3b61;
+    font-weight: bold;
 }
 
 .login .login-form label {
     color: black;
-    margin-top: 10px;;
+    margin-top: 10px;
+    background-color: #dcc7aa;
+}
+
+.login section div,
+.login section p {
+    background-color: #dcc7aa;
+}
+
+.login {
+    color: #123c69;
 }
