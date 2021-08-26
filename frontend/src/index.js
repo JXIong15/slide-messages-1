@@ -1,5 +1,6 @@
 import reportWebVitals from './reportWebVitals';
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { CookiesProvider, useCookies } from 'react-cookie';
@@ -15,7 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Router() {
   const [token] = useCookies(['mytoken'])
-  const [urlPage] = useState(window.location.pathname.split("/").pop())
+  // const [urlPage] = useState(window.location.pathname.split("/").pop())
 
   // after message is deleted, page is reloaded to indicate that
   // TO-DO: if user is viewing an individual message and deletes it, the user is then brought to the previous page

@@ -65,7 +65,7 @@ class App extends Component {
                 {(this.state.userMessageList && this.state.userMessageList.length > 0) ?
                   this.state.userMessageList.map((message) => {
                     return (
-                      <tr>
+                      <tr key={message.id}>
                       <td>
                         <p>{this.state.urlPage === "inbox" ? message.sender : message.recipient}</p>
                       </td>
