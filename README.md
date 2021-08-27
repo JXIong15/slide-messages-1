@@ -22,6 +22,10 @@ Users can login to view received and sent messages. Users can send and delete me
 
 
 ## Functionality
+* To start the app locally, `cd` into the `backend` directory
+    * Make sure you're in an Environmental Variable by running `source env/bin/activate` in the terminal
+    * Next, `cd` into the `project` directory and run `python manage.py runserver` to initiate the backend server
+* Go to the `frontend` folder and run `npm start` to initiate the ReactJS code
 * If the user is not logged in, they are promtped to. User can also create a login.
 * Once logged in, user is brought to their inbox containing any messages recieved
 * User can click on the left-hand navigation to bring them to various pages
@@ -29,6 +33,7 @@ Users can login to view received and sent messages. Users can send and delete me
     * The Compose page allows the user to create and send messages
 * Clicking on the message titles in Inbox and Sent allows the user to view the whole message
 * Individual messages can be deleted
+
 
 
 ## Tasks Completed
